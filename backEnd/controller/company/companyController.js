@@ -1,19 +1,18 @@
-let Promise = require('promise'); 
+let Promise = require('promise');
 let companyOperation = require('../../database/operations/company/companyOperation')
 
-
-let saveCompany = (parameter)=>{
-return new Promise((resolve, reject)=>{
-    console.log("parameter in controller")
-    console.log(parameter)
-    if(parameter){
-        // parameter.
-        companyOperation.saveNewCompany(parameter);
-    }
-})
+/*
+*This is the controller save function,This we use for saving the company record
+*/
+let saveCompany = (parameter) => {
+    return new Promise((resolve, reject) => {
+        if (parameter) {
+            companyOperation.saveNewCompany(parameter);
+        }
+    })
 
 }
 
 module.exports = {
-    saveCompany:saveCompany
+    saveCompany: saveCompany
 }
