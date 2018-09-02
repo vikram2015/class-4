@@ -10,14 +10,28 @@ let saveNewCompany = (parameter) => {
             let savecompany = companyModel(parameter);
             savecompany.save()
                 .then(function (data) {
-                    console.log("data in operation")
-                    console.log(data)
+                    if (data) {
+                        resolve(data);
+                    }
                 });
         }
     });
 };
 
+let fetchCompanyDetails = () => {
+    return new Promise((resolve, reject) => {
+        companyModel.find()
+            .exec()
+            .then((CompanyDetailsFromDB) => {
+                if (CompanyDetailsFromDB) {
+                    resolve(CompanyDetailsFromDB);
+                }
+            });
+    });
+};
+
 
 module.exports = {
-    saveNewCompany: saveNewCompany
+    saveNewCompany: saveNewCompany,
+    fetchCompanyDetails: fetchCompanyDetails
 }

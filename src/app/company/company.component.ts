@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { AppRoutingModule } from '../app.routing';
 import { CompanyServiceService } from '../company-service.service';
+import { CompanyDetailsComponent } from '../company-details/company-details.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CompanyComponent implements OnInit {
 
   formRecord = {};
 
-  constructor(private _companyService : CompanyServiceService) { }
+  constructor(private _companyService : CompanyServiceService, private _router:Router) { }
 
   saveCompany(){
     console.log("this is formData");
@@ -24,6 +25,9 @@ export class CompanyComponent implements OnInit {
 
     this._companyService.saveNewCompany(this.formRecord).subscribe(function(data){
       console.log(data)
+      // if(data){
+      //   this._router.navigate(['companyDetails']);
+      // }
     })
     
   }

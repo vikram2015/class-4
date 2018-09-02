@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#Id</th>
+        <th>Company ID</th>
+        <th>Company Name</th>
+        <th>Company Adress</th>
+        <th>Company Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of CompanyList; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{company.company_id}}</td>
+        <td>{{company.company_name}}</td>
+        <td>{{company.company_adress}}</td>
+        <td>{{company.company_type}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
